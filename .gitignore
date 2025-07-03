@@ -31,11 +31,17 @@ lerna-debug.log*
 
 # IDEs y editores
 /.idea
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+
+# VSCode: ignora todo dentro, pero no la carpeta en sí
+/.vscode/*
+# Reincluye la carpeta .vscode para que las excepciones funcionen
+!/.vscode/
+/.vscode/*
+# Archivos que sí queremos versionar
+!/.vscode/settings.json
+!/.vscode/tasks.json
+!/.vscode/launch.json
+!/.vscode/extensions.json
 
 # Archivos de entorno
 .env
