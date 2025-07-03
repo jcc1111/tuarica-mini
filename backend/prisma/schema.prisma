@@ -1,0 +1,16 @@
+// 1. Indica tu fuente de datos
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 2. Generador de cliente
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 3. Modelo único: Category
+model Category {
+  id   Int    @id @default(autoincrement())
+  name String
+}
