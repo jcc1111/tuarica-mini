@@ -1,0 +1,59 @@
+# Ignorar README con información sensible
+README.md
+
+# Directorios de dependencias
+/node_modules/
+/backend/node_modules/
+/frontend/node_modules/
+
+# Salidas de compilación
+/dist/
+/build/
+/backend/dist/
+/.next/
+/out/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Archivos del sistema operativo
+.DS_Store
+
+# Pruebas
+/coverage
+/.nyc_output
+
+# IDEs y editores
+/.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Archivos de entorno
+.env
+.env.*.local
+
+# Archivos temporales
+.temp
+.tmp
+
+# Datos en tiempo de ejecución
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Informes de diagnóstico
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Prisma
+/dev.db
+/generated/prisma
