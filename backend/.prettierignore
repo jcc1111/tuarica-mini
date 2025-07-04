@@ -1,0 +1,8 @@
+# Ignorar dependencias y builds
+node_modules
+dist
+coverage
+
+# Archivos de lock y config
+*.lock
+.env
