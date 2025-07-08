@@ -1,5 +1,6 @@
-
 body {
-  background: #1072d3;
+  /* Degradado inspirado en la app móvil de BCP */
+  background: linear-gradient(135deg, #005EFF 0%, #002F6C 100%);
+  min-height: 100vh;
 }
 
