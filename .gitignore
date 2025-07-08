@@ -67,3 +67,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 # Documentación (NO ignorar, mantener versionada)
 !/documentacion/
 !/documentacion/*.md
+
+# pnpm y Turborepo
+pnpm-workspace.yaml
+turbo.json

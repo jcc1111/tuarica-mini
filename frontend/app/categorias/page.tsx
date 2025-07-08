@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Categoria } from "@/types/categoria";
+import { API_URL } from "@/config";
 
 export default function CategoriasPage() {
   const [cats, setCats] = useState<Categoria[]>([]);
@@ -13,7 +14,7 @@ export default function CategoriasPage() {
 
   const fetchCats = () => {
     setLoading(true);
-    fetch("http://localhost:3000/categorias")
+    fetch(`${API_URL}/categorias`)
       .then((res) => {
         if (!res.ok) throw new Error("Error al cargar categorías");
         return res.json();
@@ -29,7 +30,7 @@ export default function CategoriasPage() {
 
   const handleDelete = async (id: number) => {
     if (!confirm("¿Eliminar esta categoría?")) return;
-    await fetch(`http://localhost:3000/categorias/${id}`, { method: "DELETE" });
+    await fetch(`${API_URL}/categorias/${id}`, { method: "DELETE" });
     fetchCats();
   };
 
@@ -41,7 +42,7 @@ export default function CategoriasPage() {
   const handleEdit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (editId === null) return;
-    await fetch(`http://localhost:3000/categorias/${editId}`, {
+    await fetch(`${API_URL}/categorias/${editId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nombre: editNombre }),

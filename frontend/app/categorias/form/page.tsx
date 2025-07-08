@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { API_URL } from "@/config";
 
 export default function CategoriaForm() {
   const [nombre, setNombre] = useState("");
@@ -13,7 +14,7 @@ export default function CategoriaForm() {
     setError(null);
     setSuccess(false);
     try {
-      const res = await fetch("http://localhost:3000/categorias", {
+      const res = await fetch(`${API_URL}/categorias`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre }),

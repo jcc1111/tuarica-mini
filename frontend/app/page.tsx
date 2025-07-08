@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { Categoria } from "@/types/categoria";
+import { API_URL } from "@/config";
 
 export default function Home() {
   const [cats, setCats] = useState<Categoria[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/categorias")
+    fetch(`${API_URL}/categorias`)
       .then(res => res.json())
       .then(setCats)
       .catch(console.error);
