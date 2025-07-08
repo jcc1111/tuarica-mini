@@ -63,3 +63,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 # Prisma
 /dev.db
 /generated/prisma
+
+# Documentación (NO ignorar, mantener versionada)
+!/documentacion/
+!/documentacion/*.md

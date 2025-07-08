@@ -1,11 +1,14 @@
+// tuarica-mini/backend/src/app.module.ts
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { PrismaModule } from './prisma.module';
 import { CategoriasModule } from './categorias/categorias.module';
 
 @Module({
-  imports: [CategoriasModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    // Importa el módulo global de Prisma
+    PrismaModule,
+    // Tu módulo de categorías
+    CategoriasModule,
+  ],
 })
 export class AppModule {}

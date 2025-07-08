@@ -1,3 +1,5 @@
+// tuarica-mini/backend/src/categorias/categorias.controller.ts
+
 import {
   Controller,
   Get,
@@ -6,40 +8,42 @@ import {
   Patch,
   Param,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { CategoriasService } from './categorias.service';
+import { Categoria } from '@prisma/client';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { UpdateCategoriaDto } from './dto/update-categoria.dto';
 
 @Controller('categorias')
 export class CategoriasController {
-  constructor(private readonly categoriasService: CategoriasService) {}
-
-  @Post()
-  create(@Body() createCategoriaDto: CreateCategoriaDto) {
-    return this.categoriasService.create(createCategoriaDto);
-  }
+  constructor(private readonly svc: CategoriasService) {}
 
   @Get()
-  findAll() {
-    return this.categoriasService.findAll();
+  getAll(): Promise<Categoria[]> {
+    return this.svc.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.categoriasService.findOne(+id);
+  getOne(@Param('id', ParseIntPipe) id: number): Promise<Categoria | null> {
+    return this.svc.findOne(id);
+  }
+
+  @Post()
+  create(@Body() dto: CreateCategoriaDto): Promise<Categoria> {
+    return this.svc.create(dto);
   }
 
   @Patch(':id')
   update(
-    @Param('id') id: string,
-    @Body() updateCategoriaDto: UpdateCategoriaDto,
-  ) {
-    return this.categoriasService.update(+id, updateCategoriaDto);
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: UpdateCategoriaDto,
+  ): Promise<Categoria> {
+    return this.svc.update(id, dto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.categoriasService.remove(+id);
+  remove(@Param('id', ParseIntPipe) id: number): Promise<Categoria> {
+    return this.svc.remove(id);
   }
 }

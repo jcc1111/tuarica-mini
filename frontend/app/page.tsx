@@ -14,7 +14,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main style={{ padding: "2rem" }}>
+    <main>
       <h1>Lista de Categorías</h1>
       {cats.length === 0 ? (
         <p>No hay categorías aún.</p>
