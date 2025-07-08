@@ -16,6 +16,7 @@ export default function Home() {
   return (
     <main>
       <h1>Lista de Categorías</h1>
+      <a href="/categorias">Ir a CRUD de Categorías</a>
       {cats.length === 0 ? (
         <p>No hay categorías aún.</p>
       ) : (
