@@ -48,18 +48,39 @@ Este documento recopila los comandos principales para trabajar con el frontend (
 
 ## Prisma (ORM y base de datos)
 
-- **Ejecutar migraciones y actualizar la base de datos:**
+- **Ejecutar migraciones y actualizar la base de datos (usando pnpm y scripts directos):**
   ```sh
-  npx prisma migrate dev
+  pnpm --filter backend prisma:migrate
   ```
-- **Abrir Prisma Studio (interfaz gráfica):**
+- **Abrir Prisma Studio (interfaz gráfica, recomendado):**
   ```sh
-  npx prisma studio
+  pnpm --filter backend prisma:studio
   ```
 - **Generar el cliente Prisma:**
   ```sh
-  npx prisma generate
+  pnpm --filter backend prisma:generate
   ```
+- **Ejecutar el seed para poblar la base de datos:**
+  ```sh
+  pnpm --filter backend prisma:seed
+  ```
+
+### Docker Compose para Postgres
+
+- **Levantar base de datos Postgres en Docker:**
+  ```sh
+  docker compose up -d
+  ```
+- **Detener los contenedores:**
+  ```sh
+  docker compose down
+  ```
+
+### Notas sobre Prisma Studio y Docker
+
+- Prisma Studio puede conectarse a la base de datos de Docker si la variable de entorno `DATABASE_URL` apunta al contenedor.
+- Puedes usar herramientas como PgAdmin o DBeaver conectando a `localhost:5432` (usuario, contraseña y base según tu `.env`).
+- Si cambias datos con el seed, actualiza Prisma Studio recargando la página.
 
 ---
 

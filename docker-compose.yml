@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: tuarica
+      POSTGRES_PASSWORD: Superman111
+      POSTGRES_DB: tuarica_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:

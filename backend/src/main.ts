@@ -3,6 +3,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { AllExceptionsFilter } from './all-exceptions.filter';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 async function bootstrap() {
   // Crea la aplicación Nest
@@ -15,13 +19,12 @@ async function bootstrap() {
     transform: true,
   }));
 
-  // Lista de orígenes permitidos para CORS (agrega aquí nuevas IPs si cambias de red)
-  const allowedOrigins = [
-    process.env.ALLOWED_ORIGIN || 'http://localhost:3000',
-    'http://localhost:3001',
-    'http://172.16.101.102:3001',
-    'http://172.20.10.2:3001',
-  ];
+  // Filtro global de manejo de errores
+  app.useGlobalFilters(new AllExceptionsFilter());
+
+  // Puerto y orígenes desde variables de entorno
+  const port = process.env.PORT ? Number(process.env.PORT) : 3001;
+  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000').split(',');
   app.enableCors({
     origin: allowedOrigins,
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
@@ -29,8 +32,8 @@ async function bootstrap() {
   });
 
   // Arranca el servidor en el puerto 3001
-  await app.listen(3001);
-  console.log(`🚀 Backend listening on http://localhost:3001`);
+  await app.listen(port);
+  console.log(`🚀 Backend listening on http://localhost:${port}`);
 }
 
 bootstrap();
