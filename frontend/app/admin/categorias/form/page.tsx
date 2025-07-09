@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { API_URL } from "@/config";
 
-export default function CategoriaForm() {
+export default function AdminCategoriaForm() {
   const [nombre, setNombre] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -46,11 +46,9 @@ export default function CategoriaForm() {
       </form>
       {success && <p style={{color:'green'}}>¡Categoría creada!</p>}
       {error && <p style={{color:'red'}}>Error: {error}</p>}
-      <Link href="/categorias">Volver a listado de categorías</Link>
+      <Link href="/admin/categorias">Volver a listado de categorías</Link>
       <br />
-      <Link href="/">Volver a inicio</Link>
-      <p>El formulario de categorías ahora está en /admin/categorias/form/page.tsx</p>
-      <p>Puedes eliminar o reutilizar este archivo si lo deseas.</p>
+      <Link href="/">Volver al inicio</Link>
     </main>
   );
 }

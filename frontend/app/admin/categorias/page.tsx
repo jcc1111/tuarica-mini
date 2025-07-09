@@ -1,14 +1,11 @@
-'use client';
+"use client";
 
-// Las rutas de CRUD de categorías han sido trasladadas a /admin/categorias/
-// Puedes eliminar o reutilizar este archivo si lo deseas.
-
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Categoria } from "@/types/categoria";
 import { API_URL } from "@/config";
+import Link from "next/link";
 
-export default function CategoriasPage() {
+export default function AdminCategoriasPage() {
   const [cats, setCats] = useState<Categoria[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -51,40 +48,48 @@ export default function CategoriasPage() {
       body: JSON.stringify({ nombre: editNombre }),
     });
     setEditId(null);
-    setEditNombre("");
     fetchCats();
   };
 
   return (
     <main>
       <h1>Categorías</h1>
-      <Link href="/categorias/form">Crear nueva categoría</Link>
-      {loading && <p>Cargando...</p>}
-      {error && <p style={{color:'red'}}>Error: {error}</p>}
-      <ul>
-        {cats.map((c) => (
-          <li key={c.id}>
-            {editId === c.id ? (
-              <form onSubmit={handleEdit} style={{display:'inline'}}>
-                <input
-                  value={editNombre}
-                  onChange={e => setEditNombre(e.target.value)}
-                  required
-                />
-                <button type="submit">Guardar</button>
-                <button type="button" onClick={() => setEditId(null)}>Cancelar</button>
-              </form>
-            ) : (
-              <>
-                {c.nombre}
-                <button onClick={() => startEdit(c)} style={{marginLeft:8}}>Editar</button>
-                <button onClick={() => handleDelete(c.id)} style={{marginLeft:4, color:'red'}}>Eliminar</button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
-      <Link href="/">Volver a inicio</Link>
+      <Link href="/admin/categorias/form">Crear nueva categoría</Link>
+      {loading ? (
+        <p>Cargando...</p>
+      ) : error ? (
+        <p style={{ color: "red" }}>{error}</p>
+      ) : cats.length === 0 ? (
+        <p>No hay categorías aún.</p>
+      ) : (
+        <ul>
+          {cats.map((cat) => (
+            <li key={cat.id}>
+              {cat.nombre}
+              <button onClick={() => startEdit(cat)}>Editar</button>
+              <button onClick={() => handleDelete(cat.id)} style={{ color: "red" }}>
+                Eliminar
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      {editId !== null && (
+        <form onSubmit={handleEdit} style={{ marginTop: 16 }}>
+          <input
+            type="text"
+            value={editNombre}
+            onChange={(e) => setEditNombre(e.target.value)}
+            required
+          />
+          <button type="submit">Guardar</button>
+          <button type="button" onClick={() => setEditId(null)}>
+            Cancelar
+          </button>
+        </form>
+      )}
+      <br />
+      <Link href="/">Volver al inicio</Link>
     </main>
   );
 }
