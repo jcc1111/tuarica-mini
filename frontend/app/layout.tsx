@@ -1,4 +1,7 @@
 import './globals.css';
+import Header from "@/app/components/Header/Header";
+import Footer from "@/app/components/Footer/Footer";
+import { usePathname } from "next/navigation";
 
 export const metadata = {
   title: 'TuArica',
@@ -10,12 +13,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  const isHome = pathname === "/";
+
   return (
     <html lang="es">
       <head>
         <link rel="icon" href="/picaflor.png" />
       </head>
-      <body>{children}</body>
+      <body>
+        <Header titulo="TuArica" />
+        {isHome && <>
+          {/* Solo en home */}
+          {require("@/app/components/SearchBar/SearchBar").default()}
+          {require("@/app/components/PromotionsCarousel/PromotionsCarousel").default()}
+        </>}
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

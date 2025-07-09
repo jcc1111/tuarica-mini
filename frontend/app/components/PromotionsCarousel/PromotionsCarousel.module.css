@@ -1,0 +1,22 @@
+.carouselContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 2rem 0;
+}
+
+.carouselPlaceholder {
+  width: 100%;
+  max-width: 600px;
+  height: 120px;
+  background: linear-gradient(90deg, #e3e9f9 0%, #c7d6f7 100%);
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #005EFF;
+  font-size: 1.3rem;
+  font-weight: 500;
+  box-shadow: 0 2px 12px rgba(0,47,108,0.08);
+  border: 1.5px dashed #005EFF55;
+}

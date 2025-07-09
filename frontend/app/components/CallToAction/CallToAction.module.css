@@ -1,0 +1,42 @@
+.ctaSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0 2rem 0;
+}
+
+.ctaBox {
+  background: linear-gradient(90deg, #005EFF 0%, #002F6C 100%);
+  color: #fff;
+  border-radius: 1.5rem;
+  padding: 2.2rem 2.5rem 2rem 2.5rem;
+  box-shadow: 0 2px 16px rgba(0,47,108,0.10);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.ctaBox h2 {
+  margin-bottom: 0.7rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.ctaBox p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.ctaButton {
+  background: #fff;
+  color: #005EFF;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 1px 6px rgba(0,47,108,0.08);
+  cursor: not-allowed;
+  opacity: 0.7;
+  transition: background 0.2s, color 0.2s;
+}

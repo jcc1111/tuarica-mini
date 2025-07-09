@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: rgba(255,255,255,0.15);
+  color: #002F6C;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-bottom: 1px solid #005EFF22;
+}
+
+.headerDark {
+  background: rgba(0,47,108,0.85);
+  color: #fff;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-bottom: 1px solid #005EFF22;
+}

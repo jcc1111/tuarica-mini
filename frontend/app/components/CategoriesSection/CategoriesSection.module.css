@@ -1,0 +1,40 @@
+.categoriesSection {
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto 2rem auto;
+  background: rgba(255,255,255,0.85);
+  border-radius: 1.5rem;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 2px 12px rgba(0,47,108,0.08);
+}
+
+.categoriesSection h2 {
+  color: #005EFF;
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+}
+
+.categoriesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.categoryItem {
+  background: #005EFF11;
+  color: #002F6C;
+  padding: 0.7rem 1.3rem;
+  border-radius: 1.2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border: 1px solid #005EFF33;
+  box-shadow: 0 1px 4px rgba(0,47,108,0.04);
+}
+
+.emptyMsg {
+  color: #888;
+  font-style: italic;
+}
