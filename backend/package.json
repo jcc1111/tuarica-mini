@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "PORT=3001 nest start --watch",
+    "dev": "cross-env PORT=3001 nest start --watch",
     "build": "nest build",
     "start": "nest start",
     "lint": "eslint . --ext .ts",

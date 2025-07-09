@@ -11,5 +11,26 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: ./backend
+    environment:
+      - PORT=3001
+      - DATABASE_URL=postgresql://tuarica:Superman111@db:5432/tuarica_db
+      - ALLOWED_ORIGINS=http://localhost:3000
+    depends_on:
+      - db
+    ports:
+      - "3001:3001"
+
+  web:
+    build: ./frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://api:3001
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
 volumes:
   postgres_data:
