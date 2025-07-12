@@ -13,54 +13,24 @@ describe('Categorias (e2e)', () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
-
     app = moduleFixture.createNestApplication();
     await app.init();
   });
-
   it('/categorias (GET)', async () => {
-    // Autenticación: login y obtención de JWT
-    const loginRes = await request(app.getHttpServer())
-      .post('/auth/login')
-      .send({
-        email: 'jorge@demo.com', // Usuario del seed
-        password: 'mundo1',      // Contraseña real
-      });
-    expect(loginRes.status).toBe(201);
-    const token = loginRes.body.access_token;
-    expect(token).toBeDefined();
-
-    // Usar el JWT en la petición a /categorias
-    const res = await request(app.getHttpServer())
-      .get('/categorias')
-      .set('Authorization', `Bearer ${token}`);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    const res = await request(app.getHttpServer()).get('/categorias');
     expect(res.status).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
   });
-
-  it('/categorias (POST) crea una categoría con subcategorías', async () => {
-    // Autenticación: login y obtención de JWT
-    const loginRes = await request(app.getHttpServer())
-      .post('/auth/login')
-      .send({
-        email: 'jorge@demo.com',
-        password: 'mundo1',
-      });
-    const token = loginRes.body.access_token;
-    expect(token).toBeDefined();
-
+  it('/categorias (POST) crea una categoría', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     const res = await request(app.getHttpServer())
       .post('/categorias')
-      .set('Authorization', `Bearer ${token}`)
-      .send({
-        nombre: 'Cat1',
-        descripcion: 'desc',
-      });
+      .send({ nombre: 'Cat1' });
     expect(res.status).toBe(201);
-    expect(res.body.nombre).toBe('Cat1');
+    expect(typeof res.body).toBe('object');
+    expect(res.body).toHaveProperty('nombre', 'Cat1');
   });
-
-
 
   afterAll(async () => {
     await app.close();

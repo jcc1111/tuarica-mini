@@ -1,34 +1,32 @@
-// Modelo de usuario con roles
-model Usuario {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
-  rol       Rol      @default(USER)
-  // otros campos...
-
-  @@map("Usuarios")
+generator client {
+  provider = "prisma-client-js"
 }
 
-enum Rol {
-  USER
-  ADMIN
-  MASTERADMIN
-  SUPERADMIN
-}
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
-// Modelo y DTO en español, tabla mapeada a “Categorias”
 model Categoria {
   id     Int    @id @default(autoincrement())
   nombre String
 
-  // Mapea este modelo a la tabla "Categorias" en la BD
   @@map("Categorias")
+}
+
+model Usuario {
+  id             Int    @id @default(autoincrement())
+  nombre_usuario String
+  email          String @unique
+  password       String
+  rol            Rol
+
+  @@map("Usuarios")
+}
+
+enum Rol {
+  usuario
+  admin
+  superadmin
+  masteradmin
 }

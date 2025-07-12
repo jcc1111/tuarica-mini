@@ -13,14 +13,11 @@ import {
 import { CategoriasService } from './categorias.service';
 import { Categoria } from '@prisma/client';
 // import { UseGuards } from '@nestjs/common';
-// import { AuthGuard } from '@nestjs/passport';
-// import { RolesGuard } from '../auth/roles.guard';
-// import { Roles } from '../auth/roles.decorator';
-// import { Role } from '../auth/roles.enum';
+// Limpieza: eliminadas referencias a auth, roles y usuarios
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { UpdateCategoriaDto } from './dto/update-categoria.dto';
 
-
+@Controller('categorias')
 @Controller('categorias')
 export class CategoriasController {
   constructor(private readonly svc: CategoriasService) {}
