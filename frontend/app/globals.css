@@ -4,11 +4,11 @@
   --azul: #000092;
   --naranja: #FF8200;
   --blanco: #FFFFF9;
-  --gris-claro: #F5F5F5;
+  --fondo1: #000075;
 }
 
 body {
-  background: var(--gris-claro);
+  background: var(--fondo1);
   min-height: 100vh;
   color: var(--azul-oscuro);
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
