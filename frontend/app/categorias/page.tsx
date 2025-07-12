@@ -5,8 +5,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Categoria } from "@/types/categoria";
+import { Categoria } from "@tuarica/shared/types";
 import { API_URL } from "@/config";
+import styles from "./Categorias.module.css";
 
 export default function CategoriasPage() {
   const [cats, setCats] = useState<Categoria[]>([]);
@@ -60,16 +61,18 @@ export default function CategoriasPage() {
       <h1>Categorías</h1>
       <Link href="/categorias/form">Crear nueva categoría</Link>
       {loading && <p>Cargando...</p>}
-      {error && <p style={{color:'red'}}>Error: {error}</p>}
+      {error && <p className={styles.error}>Error: {error}</p>}
       <ul>
         {cats.map((c) => (
           <li key={c.id}>
             {editId === c.id ? (
-              <form onSubmit={handleEdit} style={{display:'inline'}}>
+              <form onSubmit={handleEdit} className={styles.inlineForm}>
                 <input
                   value={editNombre}
                   onChange={e => setEditNombre(e.target.value)}
                   required
+                  placeholder="Nombre de la categoría"
+                  title="Nombre de la categoría"
                 />
                 <button type="submit">Guardar</button>
                 <button type="button" onClick={() => setEditId(null)}>Cancelar</button>
@@ -77,8 +80,8 @@ export default function CategoriasPage() {
             ) : (
               <>
                 {c.nombre}
-                <button onClick={() => startEdit(c)} style={{marginLeft:8}}>Editar</button>
-                <button onClick={() => handleDelete(c.id)} style={{marginLeft:4, color:'red'}}>Eliminar</button>
+                <button onClick={() => startEdit(c)} className={styles.buttonEdit}>Editar</button>
+                <button onClick={() => handleDelete(c.id)} className={styles.buttonDelete}>Eliminar</button>
               </>
             )}
           </li>

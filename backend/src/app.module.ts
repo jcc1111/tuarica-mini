@@ -2,13 +2,12 @@
 import { Module } from '@nestjs/common';
 import { PrismaModule } from './prisma.module';
 import { CategoriasModule } from './categorias/categorias.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
-  imports: [
-    // Importa el módulo global de Prisma
-    PrismaModule,
-    // Tu módulo de categorías
-    CategoriasModule,
-  ],
+  imports: [PrismaModule, CategoriasModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

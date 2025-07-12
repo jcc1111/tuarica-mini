@@ -6,7 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2023",
+    "target": "ESNext",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
@@ -21,4 +21,10 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true
   }
+  ,
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts",
+    "jest.config.js"
+  ]
 }

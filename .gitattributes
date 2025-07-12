@@ -1,0 +1,2 @@
+# Normaliza saltos de línea a LF en todos los sistemas
+* text=auto eol=lf

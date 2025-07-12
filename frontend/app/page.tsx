@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Categoria } from "@/types/categoria";
+import { Categoria } from "@tuarica/shared/types";
 import { API_URL } from "@/config";
 import CategoriesSection from "@/app/components/CategoriesSection/CategoriesSection";
 import CallToAction from "@/app/components/CallToAction/CallToAction";

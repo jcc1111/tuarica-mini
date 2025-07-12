@@ -1,0 +1,16 @@
+.error {
+  color: red;
+}
+.success {
+  color: green;
+}
+.inlineForm {
+  display: inline;
+}
+.buttonEdit {
+  margin-left: 8px;
+}
+.buttonDelete {
+  margin-left: 4px;
+  color: red;
+}

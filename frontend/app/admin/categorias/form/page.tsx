@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import styles from "./Form.module.css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { API_URL } from "@/config";
@@ -44,8 +45,8 @@ export default function AdminCategoriaForm() {
         </label>
         <button type="submit">Crear</button>
       </form>
-      {success && <p style={{color:'green'}}>¡Categoría creada!</p>}
-      {error && <p style={{color:'red'}}>Error: {error}</p>}
+      {success && <p className={styles.success}>¡Categoría creada!</p>}
+      {error && <p className={styles.error}>Error: {error}</p>}
       <Link href="/admin/categorias">Volver a listado de categorías</Link>
       <br />
       <Link href="/">Volver al inicio</Link>
