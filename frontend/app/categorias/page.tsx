@@ -57,14 +57,14 @@ export default function CategoriasPage() {
   };
 
   return (
-    <main>
-      <h1>Categorías</h1>
-      <Link href="/categorias/form">Crear nueva categoría</Link>
+    <main className={styles.mainCrud}>
+      <h1 className={styles.titulo}>Categorías</h1>
+      <Link href="/categorias/form" className={styles.linkNuevo}>Crear nueva categoría</Link>
       {loading && <p>Cargando...</p>}
       {error && <p className={styles.error}>Error: {error}</p>}
-      <ul>
+      <ul className={styles.lista}>
         {cats.map((c) => (
-          <li key={c.id}>
+          <li key={c.id} className={styles.item}>
             {editId === c.id ? (
               <form onSubmit={handleEdit} className={styles.inlineForm}>
                 <input
@@ -73,13 +73,14 @@ export default function CategoriasPage() {
                   required
                   placeholder="Nombre de la categoría"
                   title="Nombre de la categoría"
+                  className={styles.nombre}
                 />
-                <button type="submit">Guardar</button>
-                <button type="button" onClick={() => setEditId(null)}>Cancelar</button>
+                <button type="submit" className={styles.buttonEdit}>Guardar</button>
+                <button type="button" onClick={() => setEditId(null)} className={styles.buttonDelete}>Cancelar</button>
               </form>
             ) : (
               <>
-                {c.nombre}
+                <span className={styles.nombre}>{c.nombre}</span>
                 <button onClick={() => startEdit(c)} className={styles.buttonEdit}>Editar</button>
                 <button onClick={() => handleDelete(c.id)} className={styles.buttonDelete}>Eliminar</button>
               </>
@@ -87,7 +88,7 @@ export default function CategoriasPage() {
           </li>
         ))}
       </ul>
-      <Link href="/">Volver a inicio</Link>
+      <Link href="/" className={styles.volver}>Volver a inicio</Link>
     </main>
   );
 }

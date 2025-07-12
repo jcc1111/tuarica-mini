@@ -31,25 +31,26 @@ export default function CategoriaForm() {
   };
 
   return (
-    <main>
-      <h1>Crear Categoría</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <main className={styles.mainForm}>
+      <h1 className={styles.titulo}>Crear Categoría</h1>
+      <form onSubmit={handleSubmit} className={styles.formulario}>
+        <label className={styles.label}>
           Nombre:
           <input
             type="text"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             required
+            className={styles.input}
           />
         </label>
-        <button type="submit">Crear</button>
+        <button type="submit" className={styles.buttonCrear}>Crear</button>
       </form>
       {success && <p className={styles.success}>¡Categoría creada!</p>}
       {error && <p className={styles.error}>Error: {error}</p>}
-      <Link href="/categorias">Volver a listado de categorías</Link>
+      <Link href="/categorias" className={styles.volver}>Volver a listado de categorías</Link>
       <br />
-      <Link href="/">Volver a inicio</Link>
+      <Link href="/" className={styles.volver}>Volver a inicio</Link>
       <p>El formulario de categorías ahora está en /admin/categorias/form/page.tsx</p>
       <p>Puedes eliminar o reutilizar este archivo si lo deseas.</p>
     </main>

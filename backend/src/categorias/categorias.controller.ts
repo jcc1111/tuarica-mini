@@ -12,8 +12,14 @@ import {
 } from '@nestjs/common';
 import { CategoriasService } from './categorias.service';
 import { Categoria } from '@prisma/client';
+// import { UseGuards } from '@nestjs/common';
+// import { AuthGuard } from '@nestjs/passport';
+// import { RolesGuard } from '../auth/roles.guard';
+// import { Roles } from '../auth/roles.decorator';
+// import { Role } from '../auth/roles.enum';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { UpdateCategoriaDto } from './dto/update-categoria.dto';
+
 
 @Controller('categorias')
 export class CategoriasController {

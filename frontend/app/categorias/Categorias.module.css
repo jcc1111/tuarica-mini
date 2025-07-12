@@ -1,16 +1,98 @@
-.error {
-  color: red;
+/* Estilos corporativos para CRUD de categorías */
+.mainCrud {
+  background: var(--blanco);
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0,47,108,0.08);
+  padding: 2.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 700px;
 }
+
+.titulo {
+  color: var(--azul-oscuro);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.linkNuevo {
+  color: var(--naranja);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.item {
+  background: var(--gris-claro);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0,47,108,0.04);
+}
+
+.nombre {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--azul-oscuro);
+}
+
+.inlineForm {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.buttonEdit {
+  background: var(--azul);
+  color: var(--blanco);
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  margin-left: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.buttonEdit:hover {
+  background: var(--azul-oscuro);
+}
+
+.buttonDelete {
+  background: var(--naranja);
+  color: var(--blanco);
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  margin-left: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.buttonDelete:hover {
+  background: #e56a00;
+}
+
+.error {
+  color: var(--naranja);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
 .success {
   color: green;
 }
-.inlineForm {
-  display: inline;
-}
-.buttonEdit {
-  margin-left: 8px;
-}
-.buttonDelete {
-  margin-left: 4px;
-  color: red;
+
+.volver {
+  color: var(--azul);
+  margin-top: 2rem;
+  display: inline-block;
 }

@@ -6,6 +6,8 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "prettier": "^3.6.2",
+    "prisma": "^6.11.1",
+    "ts-node": "^10.9.2",
     "turbo": "^2.5.4"
   },
   "scripts": {
@@ -13,5 +15,11 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "test": "turbo run test"
+  },
+  "dependencies": {
+    "@nestjs/passport": "^11.0.5",
+    "@types/passport-jwt": "^4.0.1",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1"
   }
 }

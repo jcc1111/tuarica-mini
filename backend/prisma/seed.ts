@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
+
   // Borra todas las categorías existentes
   await prisma.categoria.deleteMany();
 
@@ -16,7 +17,9 @@ async function main() {
     ],
   });
 
-  console.log('Seed ejecutado: categorías insertadas');
+
+
+  console.log('Seed ejecutado: categorías y usuarios insertados');
 }
 
 main()

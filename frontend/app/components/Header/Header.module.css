@@ -1,21 +1,22 @@
+/* Encabezado estilo BCP adaptado a variables en español */
 .header {
   width: 100%;
   padding: 1.5rem 2rem;
-  background: rgba(255,255,255,0.15);
-  color: #002F6C;
+  background: var(--azul);
+  color: var(--blanco);
   font-size: 2rem;
   font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border-bottom: 1px solid #005EFF22;
+  box-shadow: 0 2px 8px rgba(0,47,108,0.08);
+  border-bottom: 2px solid var(--azul-oscuro);
 }
 
 .headerDark {
-  background: rgba(0,47,108,0.85);
-  color: #fff;
+  background: var(--azul);
+  color: var(--blanco);
   width: 100%;
   padding: 1.5rem 2rem;
   font-size: 2rem;
   font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border-bottom: 1px solid #005EFF22;
+  box-shadow: 0 2px 8px rgba(0,47,108,0.08);
+  border-bottom: 2px solid var(--azul-oscuro);
 }

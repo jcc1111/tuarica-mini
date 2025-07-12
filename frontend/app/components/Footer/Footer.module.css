@@ -2,7 +2,7 @@
   width: 100%;
   padding: 1.2rem 0;
   background: rgba(0,47,108,0.92);
-  color: #fff;
+ background: var(--azul);
   text-align: center;
   font-size: 1rem;
   letter-spacing: 0.02em;

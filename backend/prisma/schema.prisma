@@ -1,3 +1,20 @@
+// Modelo de usuario con roles
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  rol       Rol      @default(USER)
+  // otros campos...
+
+  @@map("Usuarios")
+}
+
+enum Rol {
+  USER
+  ADMIN
+  MASTERADMIN
+  SUPERADMIN
+}
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")

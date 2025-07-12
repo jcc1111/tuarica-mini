@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./PromotionsCarousel.module.css";
+import styles from "./Carrusel1.module.css";
 
-export default function PromotionsCarousel() {
+export default function Carrusel1() {
   return (
     <section className={styles.carouselContainer}>
       <div className={styles.carouselPlaceholder}>

@@ -13,8 +13,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
-  const isHome = pathname === "/";
+  // El layout solo contiene encabezado y pie de página
 
   return (
     <html lang="es">
@@ -23,11 +22,7 @@ export default function RootLayout({
       </head>
       <body>
         <Header titulo="TuArica" />
-        {isHome && <>
-          {/* Solo en home */}
-          {require("@/app/components/SearchBar/SearchBar").default()}
-          {require("@/app/components/PromotionsCarousel/PromotionsCarousel").default()}
-        </>}
+        {/* El contenido principal se renderiza en cada página */}
         {children}
         <Footer />
       </body>

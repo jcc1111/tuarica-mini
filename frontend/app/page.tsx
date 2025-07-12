@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { Categoria } from "@tuarica/shared/types";
 import { API_URL } from "@/config";
+import SearchBar from "@/app/components/SearchBar/SearchBar";
+import Carrusel1 from "@/app/components/Carrusel1/Carrusel";
 import CategoriesSection from "@/app/components/CategoriesSection/CategoriesSection";
 import CallToAction from "@/app/components/CallToAction/CallToAction";
 
@@ -18,6 +20,8 @@ export default function Home() {
 
   return (
     <main>
+      <SearchBar />
+      <Carrusel1 />
       <CategoriesSection categorias={cats} />
       <CallToAction />
       <a href="/categorias">Ir a CRUD de Categorías</a>

@@ -1,6 +1,60 @@
-body {
-  /* Degradado inspirado en la app móvil de BCP */
-  background: linear-gradient(135deg, #005EFF 0%, #002F6C 100%);
-  min-height: 100vh;
+:root {
+  /* Paleta personalizada con nombres en español */
+  --azul-oscuro: #002F6C;
+  --azul: #000092;
+  --naranja: #FF8200;
+  --blanco: #FFFFF9;
+  --gris-claro: #F5F5F5;
 }
+
+body {
+  background: var(--gris-claro);
+  min-height: 100vh;
+  color: var(--azul-oscuro);
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+header, footer {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  padding: 1.5em 0;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em 1em;
+}
+
+.card {
+  background: var(--blanco);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,47,108,0.08);
+  padding: 2em;
+  margin-bottom: 2em;
+}
+
+.button-primary {
+  background: var(--naranja);
+  color: var(--blanco);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,47,108,0.08);
+}
+
+input[type="search"], .search-bar {
+  background: var(--blanco);
+  border: 1px solid var(--azul);
+  border-radius: 24px;
+  padding: 0.75em 1.5em;
+  font-size: 1.1em;
+  margin-bottom: 1.5em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Puedes usar las variables en todos tus módulos CSS */
 
